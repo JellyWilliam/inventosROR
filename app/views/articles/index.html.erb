@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <h1>Все записи</h1>
+    <div class="d-flex align-items-center">
+      <%= link_to 'Новая запись', new_article_path, class:"btn btn-primary" %>
+    </div>
+  </div>
+</nav>
+
+<table class="table align-middle mb-0 bg-white container">
+  <tr class="bg-light">
+    <th>Заголовок</th>
+    <th>Содержание</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to 'Подробнее', article_path(article), class:"btn btn-secondary" %></td>
+      <td><%= link_to 'Изменить', edit_article_path(article), class:"btn btn-info" %></td>
+      <td><%= link_to 'Удалить', article_path(article), class:"btn btn-danger",
+              method: :delete,
+              data: { confirm: 'Вы уверены?' } %></td>
+    </tr>
+  <% end %>
+</table>

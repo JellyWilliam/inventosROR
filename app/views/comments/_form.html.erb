@@ -1,0 +1,19 @@
+<%= form_for([@article, @article.comments.build]) do |f|  %>
+
+  <div class="form-outline mb-4">
+    <div class="form-outline">
+      <%= f.text_field :commenter, class:"form-control", id:"name" %>
+      <%= f.label :Комментатор, class:"form-label", for:"name" %>
+    </div>
+  </div>
+
+  <div class="form-outline mb-4">
+    <div class="form-outline">
+      <%= f.text_area :body, class:"form-control", id:"text" %>
+      <%= f.label :Комментарий, class:"form-label", for:"text" %>
+    </div>
+  </div>
+
+  <%= f.submit :value => "Создать комментарий", class: "btn btn-primary" %>
+
+<% end %>
